@@ -1,0 +1,109 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Final {
+    public interface Person {
+        String getName();
+        void setName(String name);
+        int getAge();
+        void setAge(int age);
+        String getPosition();
+        void setPosition(String position);
+        String getEmpID();
+        void setEmpID(String empID);
+    }
+
+    public interface Job {
+        String getJob();
+        void setJob(String job);
+    }
+
+    public class Final implements Person, Job {
+        private String name;
+        private int age;
+        private String position;
+        private String empID;
+        private List<Project> myProjects;
+
+        public Employee() {
+            myProjects = new ArrayList<>();
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+
+        public String getPosition() {
+            return position;
+        }
+
+        public void setPosition(String position) {
+            this.position = position;
+        }
+
+        public String getEmpID() {
+            return empID;
+        }
+
+        public void setEmpID(String empID) {
+            this.empID = empID;
+        }
+
+        public void addProject(Project project) {
+            myProjects.add(project);
+        }
+
+        public void showDetails() {
+            System.out.println("Name: " + name);
+            System.out.println("Age: " + age);
+            System.out.println("Position: " + position);
+            System.out.println("EmpID: " + empID);
+
+            for (Project project : myProjects) {
+                System.out.println("Project: " + project.getProjectName());
+                System.out.println("Description: " + project.getDescription());
+            }
+        }
+    }
+
+    public class Project {
+        private String projectName;
+        private String description;
+
+        public Project() {
+        }
+
+        public Project(String projectName, String description) {
+            this.projectName = projectName;
+            this.description = description;
+        }
+
+        public String getProjectName() {
+            return projectName;
+        }
+
+        public void setProjectName(String projectName) {
+            this.projectName = projectName;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+    }
+}
